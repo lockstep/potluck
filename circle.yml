@@ -1,0 +1,6 @@
+database:
+  override:
+    - bundle exec rake db:create db:schema:load --trace:
+        environment:
+          RAILS_ENV: test
+          RACK_ENV: test
