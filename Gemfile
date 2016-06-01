@@ -10,10 +10,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'font-awesome-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'bootstrap-sass', '~> 3.3.6'
 
 
 group :production do
@@ -21,6 +22,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.4'
   gem 'byebug'
   gem 'factory_girl_rails'
