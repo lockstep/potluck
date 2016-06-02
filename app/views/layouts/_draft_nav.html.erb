@@ -4,7 +4,7 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     </div>
-    <div class="col-sm-3 col-sm-offset-9">
+    <div class="col-sm-3">
       <% if user_signed_in? %>
         <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
       <% else %>
