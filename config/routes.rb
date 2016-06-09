@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :users
-    resources :organizations
-    root to: "users#index"
+    DashboardManifest::DASHBOARDS.each do |dashboard_resource|
+      resources dashboard_resource
+    end
+
+    root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
+
+  resources :potlucks, only: [:index, :show]
 
   root 'home#index'
 
