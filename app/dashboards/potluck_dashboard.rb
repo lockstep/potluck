@@ -3,6 +3,7 @@ require "administrate/base_dashboard"
 class PotluckDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    token: Field::String,
     start_time: Field::DateTime,
     end_time: Field::DateTime,
     created_at: Field::DateTime,
@@ -17,6 +18,7 @@ class PotluckDashboard < Administrate::BaseDashboard
 
   SHOW_PAGE_ATTRIBUTES = [
     :id,
+    :token,
     :start_time,
     :end_time,
     :created_at,
