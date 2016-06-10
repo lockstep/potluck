@@ -8,6 +8,29 @@
         until
         <%= @potluck.end_time.strftime("%A %b %d, %Y | %r") %>.
       </p>
+      <video height="300" id="localVideo"></video>
+      <div id="remoteVideos"></div>
     </div>
   </div>
 </div>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag "https://cdn.temasys.com.sg/adapterjs/0.13.x/adapter.debug.js" %>
+  <script type="text/javascript" charset="utf-8">
+    AdapterJS.webRTCReady(function(isUsingPlugin) {
+      console.log('we are live');
+      console.log(isUsingPlugin);
+
+      var webrtc = new SimpleWebRTC({
+        localVideoEl: 'localVideo',
+        remoteVideosEl: 'remoteVideos',
+        autoRequestMedia: true
+      });
+
+      webrtc.on('readyToCall', function () {
+        console.log('joined');
+        webrtc.joinRoom('lockstep');
+      });
+    });
+  </script>
+<% end %>
